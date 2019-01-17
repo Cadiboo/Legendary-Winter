@@ -6,7 +6,6 @@ import geek.legendarywinter.blocks.BlockWinterstoneSlab;
 import geek.legendarywinter.blocks.BlockWinterstoneStairs;
 import geek.legendarywinter.blocks.BlockWinterstoneWall;
 import geek.legendarywinter.blocks.Polarium_Ore;
-import geek.legendarywinter.blocks.Snowstone_Block;
 import geek.legendarywinter.blocks.Strange_Snow;
 import geek.legendarywinter.blocks.Winter_Furnace;
 import geek.legendarywinter.blocks.Winterstone;
@@ -33,8 +32,8 @@ import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemSlab;
-import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.event.LootTableLoadEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
@@ -50,29 +49,25 @@ import static geek.legendarywinter.init.BlocksRegistry.WINTERSTONE_SLAB_HALF;
 @Mod.EventBusSubscriber(value = {Side.CLIENT, Side.SERVER}, modid = MODID)
 public final class CommonEventHandler {
 
-	private CommonEventHandler() {
-
-	}
-
-	/**
-	 * @param event The Event.
-	 */
-	@SubscribeEvent
-	public void onRemapBlock(final RegistryEvent.MissingMappings<Block> event) {
-		for (final RegistryEvent.MissingMappings.Mapping<Block> mapping : event.getMappings()) {
-			mapping.ignore();
-		}
-	}
-
-	/**
-	 * @param event The Event.
-	 */
-	@SubscribeEvent
-	public void onRemapItem(final RegistryEvent.MissingMappings<Item> event) {
-		for (final RegistryEvent.MissingMappings.Mapping<Item> mapping : event.getMappings()) {
-			mapping.ignore();
-		}
-	}
+//	/**
+//	 * @param event The Event.
+//	 */
+//	@SubscribeEvent
+//	public static void onRemapBlock(final RegistryEvent.MissingMappings<Block> event) {
+//		for (final RegistryEvent.MissingMappings.Mapping<Block> mapping : event.getMappings()) {
+//			mapping.ignore();
+//		}
+//	}
+//
+//	/**
+//	 * @param event The Event.
+//	 */
+//	@SubscribeEvent
+//	public static void onRemapItem(final RegistryEvent.MissingMappings<Item> event) {
+//		for (final RegistryEvent.MissingMappings.Mapping<Item> mapping : event.getMappings()) {
+//			mapping.ignore();
+//		}
+//	}
 
 	/**
 	 * @param event The Event.
@@ -85,17 +80,15 @@ public final class CommonEventHandler {
 		registry.register(setupBlock(new Winterstone(), "winterstone"));
 		registry.register(setupBlock(new Winter_Furnace(false), "winterfurnace"));
 		registry.register(setupBlock(new Winter_Furnace(true), "lit_winterfurnace"));
-		GameRegistry.registerTileEntity(TEWinter_Furnace.class, new ResourceLocation(MODID, "winterfurnace"));
-
-		//Fix enchantment placing null blocks
-		//registry.register(setupBlock(new Snowstone_Block(), "snowstone_block"));
-
 		registry.register(setupBlock(new BlockWinterstoneSlab.Half(), "winterstone_slab"));
 		registry.register(setupBlock(new BlockWinterstoneSlab.Double(), "winterstone_double_slab"));
 
-		//registry.register(setupBlock(new BlockPolariumBlock(), "polarium_block"));
+		registry.register(setupBlock(new BlockPolariumBlock(), "polarium_block"));
 
 		//event.getRegistry().register(setupBlock(new BlockFluidClassic(FluidsRegistry.FluidSnow, Material.WATER), "fluidsnow"));
+
+		GameRegistry.registerTileEntity(TEWinter_Furnace.class, new ResourceLocation(MODID, "winterfurnace"));
+
 	}
 
 	@SubscribeEvent(priority = EventPriority.LOW)
@@ -123,12 +116,11 @@ public final class CommonEventHandler {
 		final IForgeRegistry<Item> registry = event.getRegistry();
 		registry.register(setupItemBlock(BlocksRegistry.Polarium_Ore));
 		registry.register(setupItemBlock(BlocksRegistry.WinterStone));
-		//registry.register(setupItemBlock(BlocksRegistry.SnowStone));//TODO: should this have an item?
 		registry.register(setupItemBlock(BlocksRegistry.StrangeSnow));
 		registry.register(setupItemBlock(BlocksRegistry.SnowFurnace));
 		registry.register(setupItemBlock(BlocksRegistry.WinterstoneStairs));
 		registry.register(setupItemBlock(BlocksRegistry.WinterstoneWall));
-		//registry.register(setupItemBlock(BlocksRegistry.POLARIUM_BLOCK));
+		registry.register(setupItemBlock(BlocksRegistry.POLARIUM_BLOCK));
 		//event.getRegistry().register(setupItemBlock(BlocksRegistry.FluidSnow));
 
 		registry.register(setupItem(new Strange_Snowball(), "strange_snowball"));
@@ -153,14 +145,6 @@ public final class CommonEventHandler {
 			LegendaryWinter.LOGGER.debug("!#!#!#! block registered as " + itemSlab.getRegistryName());
 			registry.register(itemSlab);
 		}
-	}
-
-	/**
-	 * @param event The Event.
-	 */
-	@SubscribeEvent
-	public static void registerRecipes(final RegistryEvent.Register<IRecipe> event) {
-		//
 	}
 
 	/**
@@ -210,6 +194,17 @@ public final class CommonEventHandler {
 		LegendaryWinter.LOGGER.debug("!#!#!#! Enchantment registered as " + ench.getRegistryName());
 
 		return ench;
+	}
+
+	public static void onLootTableLoadEvent(final LootTableLoadEvent event) {
+
+//		final LootTable table = event.getTable();
+//		final ResourceLocation name = event.getName();
+//
+//		if (name.toString().equals("minecraft:chests/desert_pyramid")) {
+//			table.addPool(newPoolEntry("desert_pyramid"));
+//		}
+
 	}
 
 }
