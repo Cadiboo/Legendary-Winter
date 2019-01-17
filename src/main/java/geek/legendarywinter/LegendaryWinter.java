@@ -25,7 +25,7 @@ import org.apache.logging.log4j.Logger;
 @Mod(modid = LegendaryWinter.MODID,
 name = LegendaryWinter.NAME,
 acceptedMinecraftVersions = "[1.12.2]",
-dependencies = "required-after:forge@[14.23.4.2739,)",
+dependencies = "required-after:forge@[14.23.4.2795,)",
 version = LegendaryWinter.VERSION)
 public class LegendaryWinter
 {
@@ -36,7 +36,7 @@ public class LegendaryWinter
 	
     public static final String MODID = "legendarywinter";
     public static final String NAME = "Legendary Winter";
-    // replaced by build.gradle
+    // replaced by build.gradle in actual release.
     public static final String VERSION = "@VERSION@";
     @Instance
     public static LegendaryWinter instance = null;
