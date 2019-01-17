@@ -13,28 +13,28 @@ public interface IProxy {
 	 * @param event The Event.
 	 */
 	default void preInit(final FMLPreInitializationEvent event) {
-		FluidsRegistry.init();
+
 	}
 
 	/**
 	 * @param event The Event.
 	 */
 	default void init(final FMLInitializationEvent event) {
-		//
+
 	}
 
 	/**
 	 * @param event The Event.
 	 */
 	default void receiveIMC(final IMCEvent event) {
-		//
+
 	}
 
 	/**
 	 * @param event The Event.
 	 */
 	default void postInit(final FMLPostInitializationEvent event) {
-		//
+
 	}
 
 	World getWorld();

@@ -11,6 +11,7 @@ import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.util.EnumHelper;
+import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -29,6 +30,11 @@ dependencies = "required-after:forge@[14.23.4.2795,)",
 version = LegendaryWinter.VERSION)
 public class LegendaryWinter
 {
+	static {
+		// yay, static initializers, its ok in this case tho
+		FluidRegistry.enableUniversalBucket();
+	}
+
 	//TODO: Request:
 	// If possible, some kind of ice dungeon could be cool.
 	// have one item or gear that isn't craftable... with a powerful ability

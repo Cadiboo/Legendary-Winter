@@ -23,3 +23,6 @@ item.legendarywinter.polarium_chestplate.name=Polarium Chestplate
 item.legendarywinter.polarium_leggings.name=Polarium Leggings
 item.legendarywinter.polarium_booties.name=Polarium Booties
 item.legendarywinter.polarium_horse_armor.name=Polarium Horse Armor
+
+fluid.legendarywinter.fluid_snow=Fluid Snow
+fluid.legendarywinter.fluid_snow.Bucket=Bucket of Fluid Snow

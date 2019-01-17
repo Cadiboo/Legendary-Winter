@@ -1,58 +1,50 @@
 package geek.legendarywinter.init;
 
-import geek.legendarywinter.LegendaryWinter;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
-import geek.legendarywinter.items.*;
-import geek.legendarywinter.items.armor.*;
-import geek.legendarywinter.items.tools.*;
 
 import static geek.legendarywinter.LegendaryWinter.MODID;
 
 @ObjectHolder(MODID)
 public class ItemsRegistery {
-	
-	/**
-	 *
-	 */
+
 	@ObjectHolder("legendarywinter:strange_snowball")
-	public static final Item strangesnowball = new Strange_Snowball();
+	public static final Item strangesnowball = null;
 
 	@ObjectHolder("legendarywinter:winterjam")
-	public static final Item winterjam = new WinterJam();
-	
+	public static final Item winterjam = null;
+
 	@ObjectHolder("legendarywinter:polarium_ingot")
-	public static final Item polarium_ingot = new Polarium_Ingot();
-	
+	public static final Item polarium_ingot = null;
+
 	@ObjectHolder("legendarywinter:polarium_sword")
-	public static final Item polarium_sword = new WinterToolSword();
-	
+	public static final Item polarium_sword = null;
+
 	@ObjectHolder("legendarywinter:polarium_shovel")
-	public static final Item polarium_shovel = new WinterToolShovel();
-	
+	public static final Item polarium_shovel = null;
+
 	@ObjectHolder("legendarywinter:polarium_pickaxe")
-	public static final Item polarium_pickaxe = new WinterToolPickaxe();
-	
+	public static final Item polarium_pickaxe = null;
+
 	@ObjectHolder("legendarywinter:polarium_axe")
-	public static final Item polarium_axe = new WinterToolAxe();
-	
+	public static final Item polarium_axe = null;
+
 	@ObjectHolder("legendarywinter:polarium_helmet")
-	public static final Item polarium_helmet = new PolariumHelmet();
-	
+	public static final Item polarium_helmet = null;
+
 	@ObjectHolder("legendarywinter:polarium_chestplate")
-	public static final Item polarium_chestplate = new PolariumChestplate();
-	
+	public static final Item polarium_chestplate = null;
+
 	@ObjectHolder("legendarywinter:polarium_leggings")
-	public static final Item polarium_leggings = new PolariumLeggings();
-	
+	public static final Item polarium_leggings = null;
+
 	@ObjectHolder("legendarywinter:polarium_booties")
-	public static final Item polarium_booties = new PolariumBooties();
+	public static final Item polarium_booties = null;
 
 	public static final Item POLARIUM_HOE = null;
 
 	public static final Item POLARIUM_NUGGET = null;
 
 	public static final Item POLARIUM_HORSE_ARMOR = null;
-
 
 }

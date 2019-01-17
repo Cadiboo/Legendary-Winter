@@ -1,18 +1,11 @@
 package geek.legendarywinter.init;
 
 import geek.legendarywinter.LegendaryWinter;
-import geek.legendarywinter.blocks.BlockWinterstoneSlab;
-import geek.legendarywinter.blocks.BlockWinterstoneStairs;
-import geek.legendarywinter.blocks.BlockWinterstoneWall;
-import geek.legendarywinter.blocks.Polarium_Ore;
-import geek.legendarywinter.blocks.Strange_Snow;
-import geek.legendarywinter.blocks.Winter_Furnace;
-import geek.legendarywinter.blocks.Winterstone;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSlab;
+import net.minecraftforge.fluids.BlockFluidBase;
+import net.minecraftforge.fluids.IFluidBlock;
 import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
-
-import javax.annotation.Nonnull;
 
 @ObjectHolder(LegendaryWinter.MODID)
 public class BlocksRegistry {
@@ -22,35 +15,37 @@ public class BlocksRegistry {
 	}
 
 	@ObjectHolder("legendarywinter:strange_snow")
-	public static final Block StrangeSnow = new Strange_Snow();
+	public static final Block StrangeSnow = null;
 
 	@ObjectHolder("legendarywinter:polarium_ore")
-	public static final Block Polarium_Ore = new Polarium_Ore();
+	public static final Block Polarium_Ore = null;
 
 	@ObjectHolder("legendarywinter:winterstone")
-	public static final Block WinterStone = new Winterstone();
+	public static final Block WinterStone = null;
 
 	@ObjectHolder("legendarywinter:winterfurnace")
-	public static final Block SnowFurnace = new Winter_Furnace(false);
+	public static final Block SnowFurnace = null;
 
 	@ObjectHolder("legendarywinter:lit_winterfurnace")
-	public static final Block Lit_SnowFurnace = new Winter_Furnace(true);
+	public static final Block Lit_SnowFurnace = null;
 
 	@ObjectHolder("legendarywinter:fluidsnow")
 	public static final Block FluidSnow = null;
 
 	@ObjectHolder("legendarywinter:winterstone_slab")
-	public static final BlockSlab WINTERSTONE_SLAB_HALF = new BlockWinterstoneSlab.Half();
+	public static final BlockSlab WINTERSTONE_SLAB_HALF = null;
 
 	@ObjectHolder("legendarywinter:winterstone_double_slab")
-	public static final BlockSlab WINTERSTONE_SLAB_DOUBLE = new BlockWinterstoneSlab.Double();
+	public static final BlockSlab WINTERSTONE_SLAB_DOUBLE = null;
 
 	@ObjectHolder("legendarywinter:winterstone_stairs")
-	public static final Block WinterstoneStairs = new BlockWinterstoneStairs(BlocksRegistry.WinterStone);
+	public static final Block WinterstoneStairs = null;
 
 	@ObjectHolder("legendarywinter:winterstone_wall")
-	public static final Block WinterstoneWall = new BlockWinterstoneWall(BlocksRegistry.WinterStone.getDefaultState());
+	public static final Block WinterstoneWall = null;
 
 	public static final Block POLARIUM_BLOCK = null;
+
+	public static final BlockFluidBase FLUID_SNOW = null;
 
 }

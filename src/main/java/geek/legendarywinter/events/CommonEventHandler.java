@@ -1,6 +1,7 @@
 package geek.legendarywinter.events;
 
 import geek.legendarywinter.LegendaryWinter;
+import geek.legendarywinter.blocks.BlockFluidSnow;
 import geek.legendarywinter.blocks.BlockPolariumBlock;
 import geek.legendarywinter.blocks.BlockWinterstoneSlab;
 import geek.legendarywinter.blocks.BlockWinterstoneStairs;
@@ -11,6 +12,7 @@ import geek.legendarywinter.blocks.Winter_Furnace;
 import geek.legendarywinter.blocks.Winterstone;
 import geek.legendarywinter.enchantments.EnchantmentWinterWalker;
 import geek.legendarywinter.init.BlocksRegistry;
+import geek.legendarywinter.init.FluidsRegistry;
 import geek.legendarywinter.items.PolariumNugget;
 import geek.legendarywinter.items.Polarium_Ingot;
 import geek.legendarywinter.items.Strange_Snowball;
@@ -35,6 +37,7 @@ import net.minecraft.item.ItemSlab;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.LootTableLoadEvent;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -82,10 +85,11 @@ public final class CommonEventHandler {
 		registry.register(setupBlock(new Winter_Furnace(true), "lit_winterfurnace"));
 		registry.register(setupBlock(new BlockWinterstoneSlab.Half(), "winterstone_slab"));
 		registry.register(setupBlock(new BlockWinterstoneSlab.Double(), "winterstone_double_slab"));
-
 		registry.register(setupBlock(new BlockPolariumBlock(), "polarium_block"));
 
-		//event.getRegistry().register(setupBlock(new BlockFluidClassic(FluidsRegistry.FluidSnow, Material.WATER), "fluidsnow"));
+		FluidsRegistry.init();
+		FluidRegistry.registerFluid(FluidsRegistry.FLUID_SNOW);
+		FluidRegistry.addBucketForFluid(FluidsRegistry.FLUID_SNOW);
 
 		GameRegistry.registerTileEntity(TEWinter_Furnace.class, new ResourceLocation(MODID, "winterfurnace"));
 
@@ -100,6 +104,9 @@ public final class CommonEventHandler {
 		//register these later so if mods override Snow Stone we get the overridden version
 		registry.register(setupBlock(new BlockWinterstoneStairs(winterstone), "winterstone_stairs"));
 		registry.register(setupBlock(new BlockWinterstoneWall(winterstone.getDefaultState()), "winterstone_wall"));
+
+		//register these later so if mods override Fluid Snow we get the overridden version
+		registry.register(setupBlock(new BlockFluidSnow(FluidsRegistry.FLUID_SNOW), "fluid_snow"));
 
 	}
 
@@ -121,7 +128,6 @@ public final class CommonEventHandler {
 		registry.register(setupItemBlock(BlocksRegistry.WinterstoneStairs));
 		registry.register(setupItemBlock(BlocksRegistry.WinterstoneWall));
 		registry.register(setupItemBlock(BlocksRegistry.POLARIUM_BLOCK));
-		//event.getRegistry().register(setupItemBlock(BlocksRegistry.FluidSnow));
 
 		registry.register(setupItem(new Strange_Snowball(), "strange_snowball"));
 		registry.register(setupItem(new Polarium_Ingot(), "polarium_ingot"));
